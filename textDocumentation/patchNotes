@@ -1,0 +1,53 @@
+This is a text document to accompany the code provided in this repository.
+It is meant to be in a sort of patch note format for easy reading.
+In here the results of the code as well as any changes in hardware and code versions will be recorded.
+This is not intended to replace any existing system or to insult or harm the reputation of
+any other developers working on similar or opposing projects, this is mostly for fun :o
+#-----------------------------------------------------------------------------------------------------------------#
+
+v0.1
+Very Early, very rough idea of what is in mind, to fully automate the learning of AI models through the the skimming of publicly available data and text.
+
+The skimTrainingData.py code will be cut down and uploaded as a single instance instead of running through multiple instances in one run.
+
+The use of checks and timers will continue unless oterwise stated in the README.md file or in patchNotes document.
+
+Software: Mistral 7b - instance 1 (unmodified)- codename: Buttercup !THIS model will be referenced by its cn from this point!
+Buttercup is planned to be a testbed for future models and will be designed to test hardware limits and configurations as well as how much data input it can handle.
+Hardware: Ryzen 7 7700, Intel A770 16gb, 16GB 3200MHz DDR4.
+
+General stats:
+Data Size (MB/GB):
+Data Ingestion time(s):
+Load time(to memory):
+
+Model stats:
+tokens (p/s):
+first token time:
+Generation (p/s):
+Accuracy score (See below for explanation):
+consistancy score (See below for explanation):
+hallucination rate (See below for explanation):
+
+GPU stats:
+idle temp:
+peak temp:
+running temp:
+VRAM usage (average):
+
+Notes:
+
+
+Known Issues/Next steps:
+
+
+#-----------------------------------------------------------------------------------------------------------------#
+
+Accuracy and consisteny - the model is given standardised inputs (listed below) and measured on its accuracy to the source as well as the consistency of its reply - base model stats are also listed for compaison where applicable.
+In the case of v0.1, buttercup will be unmodified, v0.2 will introduced modification to the model.
+Both accuracy and consitstancy are scored via percentage.
+Accuracy is its similarity to the source texts
+consistancy is its similarity to its previous replies
+hallucination rate is how often the model makes up data
+the data set will include both general and specialised questions and will be standardised accross models.
+question set versions may be revised for models with specific use cases but will still follow the same testing standard.
