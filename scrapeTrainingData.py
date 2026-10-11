@@ -2,7 +2,7 @@
 #Web scraping scripts to extract training examples from various sources for use in AI model training.
 #Install required packages: pip install requests beautifulsoup4 selenium lxml
 #!!V0.1!!
-
+#Legacy Script do not use#
 
 import requests
 from bs4 import BeautifulSoup 
