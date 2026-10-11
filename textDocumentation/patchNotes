@@ -6,22 +6,22 @@ any other developers working on similar or opposing projects, this is mostly for
 #-----------------------------------------------------------------------------------------------------------------#
 
 v0.1
-Very Early, very rough idea of what is in mind, to fully automate the learning of AI models through the the skimming of publicly available data and text.
+Very Early, very rough idea of what is in mind, to fully automate the learning of AI models through the the skimming of publicly available data and text. I am aware this is being done on a massive scale locally, my idea is to show its possible and plausable on hardware not considered the best or industry standard.
 
 The skimTrainingData.py code will be cut down and uploaded as a single instance instead of running through multiple instances in one run.
 
 The use of checks and timers will continue unless oterwise stated in the README.md file or in patchNotes document.
 
-Software: Mistral 7b - instance 1 (unmodified)- codename: Buttercup !THIS model will be referenced by its cn from this point!
+Software: Qwen(gemma4:12b) - codename: Buttercup !THIS model will be referenced by its cn from this point!
 Buttercup is planned to be a testbed for future models and will be designed to test hardware limits and configurations as well as how much data input it can handle.
-Hardware: Ryzen 7 7700, Intel A770 16gb, 16GB 3200MHz DDR4.
+Hardware: Ryzen 7 3700x 8 core 16 threads, Intel A770 16gb, 32GB 3000MHz DDR4.
 
 General stats:
 Data Size (MB/GB):
 Data Ingestion time(s):
 Load time(to memory):
 
-Model stats:
+Model stats: Buttercup
 tokens (p/s):
 first token time:
 Generation (p/s):
