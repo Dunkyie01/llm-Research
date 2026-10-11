@@ -1,42 +1,112 @@
+# OWASP Scrape & Check
 
-WARNING: Legal & Ethical Usage
-- This script scrapes ONLY from authorized educational sources
-- Always respect robots.txt and website Terms of Service
-- Do not use scraped data for commercial purposes
-- Ensure compliance with your jurisdiction's laws
-- This is for educational/personal use only
+A pair of Python scripts for collecting data from [OWASP](https://owasp.org) and checking it against your own targets. `scrape.py` pulls the data down, and `check.py` uses it.
 
-WARNING: Rate Limiting
-- The script includes delays between requests (time.sleep)
-- Do not remove these delays - they prevent server overload
-- Aggressive scraping may result in IP bans
+> **Note:** Use these tools only on systems you own or have explicit permission to test.
 
-TIPS:
-1. Always verify robots.txt before scraping (this script does it automatically)
-2. Use API endpoints when available (StackOverflow uses official API)
-3. Add User-Agent headers for transparency
-4. Monitor your output to catch errors early
-5. Save data incrementally to prevent loss on failure
-6. Keep logs of what you scraped and when
-7. Test on small datasets first before full runs
+## Contents
 
-DATA SOURCES:
-All sources are authorized for educational scraping:
+| File | Purpose |
+| --- | --- |
+| `owasp_scrape.py` | Scrapes OWASP content (e.g. Top 10 categories, descriptions, references) and saves it locally |
+| `owasp_check.py` | Reads the scraped data and checks [your input, e.g. a URL / config / codebase] against it |
 
-1. OWASP - https://owasp.org/www-community/attacks/SQL_Injection
-   Purpose: Security education, explicitly allows scraping.
-   In current version (v0.1) outputs usable data.
-   
-3. StackOverflow API - https://api.stackexchange.com/2.3/search/advanced
-   Purpose: Official API, no ToS violation.
-   In current version (v0.1) only outputs URL's cannot be used unless re-inputed.
-   
-4. PyPI - https://pypi.org/project/
-   Purpose: Official Python package index.
-   In current version (v0.1) outputs Error 404.
+## Features
 
+- Scrapes [OWASP Top 10 / Cheat Sheets / other source] into a structured format (JSON/CSV)
+- Checks [headers / dependencies / code patterns / responses] against the scraped data
+- Simple command-line interface
+- Readable output you can save or pipe into other tools
 
-OUTPUT:
-1. The Output file should always be in plain text for conversion, any other data format as of v0.1 will be processed as plain text - this can yield some STRANGE results.
-   
-!EOF!
+## Requirements
+
+- Python 3.9+
+- Dependencies listed in `requirements.txt`, typically:
+  - `requests`
+  - `beautifulsoup4`
+
+## Installation
+
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+
+python -m venv venv
+source venv/bin/activate        # Windows: venv\Scripts\activate
+
+pip install -r requirements.txt
+```
+
+## Usage
+
+### 1. Scrape the data
+
+```bash
+python owasp_scrape.py
+```
+
+This writes the results to `data/owasp_data.json` (or wherever you've configured it).
+
+### 2. Run the check
+
+```bash
+python owasp_check.py <target>
+```
+
+Example:
+
+```bash
+python owasp_check.py https://example.com
+```
+
+### Options
+
+| Flag | Description | Default |
+| --- | --- | --- |
+| `-o`, `--output` | Output file path | `results.json` |
+| `-v`, `--verbose` | Show detailed output | off |
+
+*(Update this table to match the arguments your scripts actually accept.)*
+
+## Example Output
+
+```text
+[+] Loaded 10 OWASP categories
+[!] A05: Security Misconfiguration - missing X-Frame-Options header
+[+] A02: Cryptographic Failures - HTTPS enforced
+```
+
+## Project Structure
+
+```text
+.
+├── owasp_scrape.py
+├── owasp_check.py
+├── requirements.txt
+├── data/
+│   └── owasp_data.json
+└── README.md
+```
+
+## Responsible Use
+
+Scraping should be gentle: respect OWASP's `robots.txt` and terms, avoid hammering their servers, and cache results rather than re-scraping on every run. Only run checks against targets you are authorised to test.
+
+## Roadmap
+
+- [ ] Add more OWASP sources
+- [ ] Export results to HTML/Markdown reports
+- [ ] Add unit tests
+- [ ] Add CI via GitHub Actions
+
+## Contributing
+
+Issues and pull requests are welcome. For larger changes, please open an issue first to discuss what you'd like to change.
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for details.
+
+## Author
+
+Dunkyie01 :)
