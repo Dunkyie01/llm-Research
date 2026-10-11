@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 """
-owasp_harvester.py - pull the OWASP Cheat Sheet Series and turn it into clean,
-raw-text chunks for a local model.
 
 What "raw" means here:
   - markdown syntax stripped (headings, bold/italic, links, images, tables, HTML)
@@ -19,7 +17,6 @@ Usage:
   python owasp_harvester.py --preview 3          # print 3 cleaned chunks, write nothing
 
 Requirements: pip install requests
-Optional: export GITHUB_TOKEN=...  (raises GitHub API limit from 60 to 5000/hr)
 
 Licence note: the OWASP Cheat Sheet Series is CC BY-SA 4.0. Every row carries the
 licence and source URL so attribution travels with the data.
